@@ -1,5 +1,7 @@
 package my.fantasyfootball.de.model;
 
+import my.fantasyfootball.de.model.team.Team;
+
 import javax.persistence.*;
 
 import java.util.UUID;

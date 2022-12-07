@@ -2,8 +2,7 @@ package my.fantasyfootball.de.model.footballplayer;
 
 
 import my.fantasyfootball.de.model.Statistics;
-import my.fantasyfootball.de.model.Team;
-import my.fantasyfootball.de.model.footballplayer.Amplua;
+import my.fantasyfootball.de.model.team.Team;
 
 import javax.persistence.*;
 import java.util.*;
@@ -132,7 +131,11 @@ public class FootballPlayer {
     }
 
     public double getFootballPlayerRate() {
-        return footballPlayerRate;
+        double sum = 0;
+        for(Statistics stat : statisticsList) {
+            sum = sum + stat.getRatingPerGame();
+        }
+        return sum  / statisticsList.size();
     }
 
     public Set<Team> getTeams() {

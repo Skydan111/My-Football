@@ -3,6 +3,7 @@ package my.fantasyfootball.de;
 import my.fantasyfootball.de.model.*;
 import my.fantasyfootball.de.model.footballplayer.Amplua;
 import my.fantasyfootball.de.model.footballplayer.FootballPlayer;
+import my.fantasyfootball.de.model.team.Team;
 import my.fantasyfootball.de.repository.TeamRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
