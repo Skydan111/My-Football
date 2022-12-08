@@ -1,4 +1,4 @@
-package my.fantasyfootball.de.model;
+package my.fantasyfootball.de.model.statistics;
 
 import my.fantasyfootball.de.model.footballplayer.FootballPlayer;
 
@@ -100,7 +100,7 @@ public class Statistics {
         this.assists = assists;
     }
 
-    public double getRatingPerGame() {
+    public int getRatingPerGame() {
         return ratingPerGame;
     }
 

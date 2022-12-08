@@ -1,7 +1,7 @@
 package my.fantasyfootball.de.model.footballplayer;
 
 
-import my.fantasyfootball.de.model.Statistics;
+import my.fantasyfootball.de.model.statistics.Statistics;
 import my.fantasyfootball.de.model.team.Team;
 
 import javax.persistence.*;
