@@ -7,8 +7,10 @@ import my.fantasyfootball.de.service.TeamService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class TeamServiceImpl implements TeamService {
@@ -38,5 +40,17 @@ public class TeamServiceImpl implements TeamService {
         Team team = teamRepository.getUserTeam(id);
         TeamModel teamModel = new TeamModel(team);
         return teamModel;
+    }
+
+    @Override
+    public List<TeamModel> getTeamsByTeamRate() {
+
+        List<TeamModel> teamModels = getAllTeams();
+
+        teamModels.stream()
+                .sorted(Comparator.comparing(TeamModel::getTeamRate).reversed())
+                .collect(Collectors.toList());
+
+        return teamModels;
     }
 }

@@ -1,19 +1,33 @@
 package my.fantasyfootball.de.model.footballplayer;
 
+import java.util.UUID;
+
 public class FootballPlayerModel {
-    private final String firstName;
-    private final String lastName;
+    private final UUID uuid;
+    private final String fullName;
+    private final int price;
+    private final Amplua amplua;
 
     public FootballPlayerModel(FootballPlayer footballPlayer){
-        this.firstName = footballPlayer.getFirstName();
-        this.lastName = footballPlayer.getLastName();
+        this.uuid = footballPlayer.getId();
+        this.fullName = footballPlayer.getFullName();
+        this.price = footballPlayer.getPrice();
+        this.amplua = footballPlayer.getAmplua();
     }
 
-    public String getFirstName() {
-        return firstName;
+    public UUID getId() {
+        return uuid;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getFullName() {
+        return fullName;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public Amplua getAmplua() {
+        return amplua;
     }
 }

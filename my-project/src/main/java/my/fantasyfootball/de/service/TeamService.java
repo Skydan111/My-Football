@@ -11,4 +11,5 @@ public interface TeamService {
 
     List<TeamModel> getAllTeams();
     TeamModel getUserTeam(String userId);
+    List<TeamModel> getTeamsByTeamRate();
 }
