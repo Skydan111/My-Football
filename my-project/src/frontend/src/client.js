@@ -12,3 +12,7 @@ const checkStatus = responce => {
 export const getAllPlayers = () =>
     fetch("api/v1/players")
         .then(checkStatus);
+
+export const getTeamsByRate = () =>
+    fetch("api/v1/teams/byRate")
+        .then(checkStatus);

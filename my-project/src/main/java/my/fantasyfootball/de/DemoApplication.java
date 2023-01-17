@@ -80,6 +80,13 @@ public class DemoApplication {
 					Amplua.FORWARD,
 					120_000_000);
 
+			FootballPlayer alisson = new FootballPlayer(
+					"Alisson",
+					"Becker",
+					"Brasile",
+					Amplua.GOALKEEPER,
+					50_000_000);
+
 			mykolenko.addStatistics(new Statistics("MU", 0, 0, 8));
 			mykolenko.addStatistics(new Statistics("MC", 0, 0, 6));
 			mykolenko.addStatistics(new Statistics("Chelsey", 0, 1, 7));
@@ -95,6 +102,11 @@ public class DemoApplication {
 			holland.addStatistics(new Statistics("MU", 3, 0, 9));
 			holland.addStatistics(new Statistics("Arsenal", 1, 1, 8));
 
+			alisson.addStatistics(new Statistics("Arsenal", 0, 1, 8));
+			alisson.addStatistics(new Statistics("MC", 0, 0, 7));
+			alisson.addStatistics(new Statistics("Chelsey", 0, 0, 9));
+
+
 
 			everton.transferToSquad(mykolenko);
 			everton.transferToSquad(garner);
@@ -105,6 +117,7 @@ public class DemoApplication {
 
 			city.transferToSquad(mykolenko);
 			city.transferToSquad(holland);
+			city.transferToSquad(alisson);
 
 			teamRepository.saveAll(List.of(everton, arsenal, city));
 		};

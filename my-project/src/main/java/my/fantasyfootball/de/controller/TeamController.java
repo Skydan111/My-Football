@@ -29,4 +29,9 @@ public class TeamController {
     public TeamModel getUserTeam(@PathVariable String userId){
         return teamService.getUserTeam(userId);
     }
+
+    @GetMapping(path = "/byRate")
+    public List<TeamModel> getTeamsByRate() {
+        return teamService.getTeamsByTeamRate();
+    }
 }

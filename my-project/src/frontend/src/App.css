@@ -13,8 +13,12 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-.site-layout .site-layout-background {
-  background: #fff;
+
+
+.site-layout-background {
+  padding: 0;
+  background-color: whitesmoke;
+  color: darkblue;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -31,11 +35,19 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+}
+
+.site-layout-background-breadcrumb {
+  margin: 16px 0;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.site-layout-footer {
+  text-align: center;
+  color: darkblue;
 }
 
 @keyframes App-logo-spin {
