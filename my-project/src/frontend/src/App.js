@@ -1,7 +1,8 @@
 import {useState} from 'react';
-import { Route, Link, Routes} from "react-router-dom";
+import {Route, Link, Routes} from "react-router-dom";
 import AllPlayers from "./components/pages/AllPlayers";
 import TeamsByRate from "./components/pages/TeamsByRate";
+import MyTeam from "./components/pages/MyTeam";
 
 import {
     Layout,
@@ -18,18 +19,18 @@ import {
 } from "@ant-design/icons";
 import SubMenu from "antd/es/menu/SubMenu";
 
-const { Header, Content, Sider, Footer } = Layout;
+const {Header, Content, Sider, Footer} = Layout;
 
 export default function App() {
 
     const [collapsed, setCollapsed] = useState(false);
 
 
-    return <Layout style={{ minHeight: '100vh' }}>
+    return <Layout style={{minHeight: '100vh'}}>
 
         <Sider collapsible collapsed={collapsed}
                onCollapse={setCollapsed}>
-            <div className="logo" />
+            <div className="logo"/>
             <Menu
                 theme="dark"
                 defaultSelectedKeys={["myTeam"]}
@@ -37,35 +38,36 @@ export default function App() {
             >
                 <Menu.Item
                     key={"myTeam"}
-                    icon={<TrophyOutlined />}
-                    >
+                    icon={<TrophyOutlined/>}
+                >
                     My Team
-                    <Link to="/" />
+                    <Link to="/"/>
                 </Menu.Item>
 
                 <Menu.Item
                     key={"table"}
-                    icon={<BarsOutlined />}
-                    >
+                    icon={<BarsOutlined/>}
+                >
                     Table
-                    <Link to="/table" />
+                    <Link to="/table"/>
                 </Menu.Item>
 
-                <SubMenu key="users" icon={<UserOutlined />} title="Users">
-                    <Menu.Item >Oleg</Menu.Item>
-                    <Menu.Item >Nick</Menu.Item>
-                    <Menu.Item >Kate</Menu.Item>
+                <SubMenu key="users" icon={<UserOutlined/>} title="Users">
+                    <Menu.Item>Oleg</Menu.Item>
+                    <Menu.Item>Nick</Menu.Item>
+                    <Menu.Item>Kate</Menu.Item>
                 </SubMenu>
-                <SubMenu key="teams" icon={<TeamOutlined />} title="Teams">
-                    <Menu.Item >Everton</Menu.Item>
-                    <Menu.Item >City</Menu.Item>
-                    <Menu.Item >Arsenal</Menu.Item>
+                <SubMenu key="teams" icon={<TeamOutlined/>} title="Teams">
+                    <Menu.Item>Everton</Menu.Item>
+                    <Menu.Item>City</Menu.Item>
+                    <Menu.Item>Arsenal</Menu.Item>
                 </SubMenu>
                 <Menu.Item
                     key={"transferMarket"}
-                    icon={<DollarCircleOutlined />}
+                    icon={<DollarCircleOutlined/>}
                 >
                     Transfer Market
+                    <Link to="/transferMarket"/>
                 </Menu.Item>
             </Menu>
         </Sider>
@@ -76,8 +78,9 @@ export default function App() {
             </Header>
             <Content>
                 <Routes>
-                <Route exact path="/" element={<AllPlayers />} />
-                <Route path="/table" element={<TeamsByRate />} />
+                    <Route exact path="/" element={<MyTeam/>}/>
+                    <Route path="/table" element={<TeamsByRate/>}/>
+                    <Route exact path="/transferMarket" element={<AllPlayers/>}/>
                 </Routes>
             </Content>
             <Footer className="site-layout-footer">Fantasy League by Oleg Skydan</Footer>

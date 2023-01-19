@@ -16,3 +16,7 @@ export const getAllPlayers = () =>
 export const getTeamsByRate = () =>
     fetch("api/v1/teams/byRate")
         .then(checkStatus);
+
+export const getTeamSquad = () =>
+    fetch("api/v1/teams/fc/Everton")
+        .then(checkStatus);

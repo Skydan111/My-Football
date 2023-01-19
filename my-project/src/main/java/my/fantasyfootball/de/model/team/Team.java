@@ -73,7 +73,7 @@ public class Team {
             )
         )
     )
-    private final Set<FootballPlayer> squad = new HashSet<>();
+    private final List<FootballPlayer> squad = new ArrayList<>();
 
     public Team() {
     }
@@ -133,7 +133,7 @@ public class Team {
         this.budget = budget;
     }
 
-    public Set<FootballPlayer> getSquad() {
+    public List<FootballPlayer> getSquad() {
         return squad;
     }
 

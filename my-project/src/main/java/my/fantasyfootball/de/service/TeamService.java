@@ -1,5 +1,6 @@
 package my.fantasyfootball.de.service;
 
+import my.fantasyfootball.de.model.footballplayer.FootballPlayerModel;
 import my.fantasyfootball.de.model.team.Team;
 import my.fantasyfootball.de.model.team.TeamModel;
 import org.springframework.data.jpa.repository.Query;
@@ -12,4 +13,5 @@ public interface TeamService {
     List<TeamModel> getAllTeams();
     TeamModel getUserTeam(String userId);
     List<TeamModel> getTeamsByTeamRate();
+    List<FootballPlayerModel> getTeamSquad(String teamName);
 }

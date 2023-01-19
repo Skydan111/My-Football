@@ -1,5 +1,7 @@
 package my.fantasyfootball.de.service.impl;
 
+import my.fantasyfootball.de.model.footballplayer.FootballPlayer;
+import my.fantasyfootball.de.model.footballplayer.FootballPlayerModel;
 import my.fantasyfootball.de.model.team.Team;
 import my.fantasyfootball.de.model.team.TeamModel;
 import my.fantasyfootball.de.repository.TeamRepository;
@@ -7,7 +9,6 @@ import my.fantasyfootball.de.service.TeamService;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class TeamServiceImpl implements TeamService {
@@ -48,4 +49,18 @@ public class TeamServiceImpl implements TeamService {
 
         return teamModels;
     }
+
+    @Override
+    public List<FootballPlayerModel> getTeamSquad(String teamName) {
+        Team team = teamRepository.getTeamByTeamName(teamName);
+        List<FootballPlayer> squad = team.getSquad();
+        List<FootballPlayerModel> teamSquad = new ArrayList<>();
+        for(FootballPlayer player : squad) {
+            FootballPlayerModel footballPlayerModel = new FootballPlayerModel(player);
+            teamSquad.add(footballPlayerModel);
+        }
+
+        return teamSquad;
+    }
+
 }

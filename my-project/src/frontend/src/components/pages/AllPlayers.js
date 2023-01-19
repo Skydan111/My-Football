@@ -1,6 +1,9 @@
 import {useState, useEffect} from 'react';
 import {getAllPlayers} from "../../client";
-import {Breadcrumb, Empty, Table} from "antd";
+import {
+    Empty,
+    Table
+} from "antd";
 
 export default function AllPlayers() {
     const [footballPlayers, setFootballPlayers] = useState([]);
@@ -9,12 +12,6 @@ export default function AllPlayers() {
         {
             title: 'FullName',
             dataIndex: 'fullName',
-        },
-        {
-            title: 'Price',
-            className: 'column-money',
-            dataIndex: 'price',
-            align: 'center',
         },
         {
             title: 'Amplua',
@@ -39,6 +36,12 @@ export default function AllPlayers() {
             ],
             onFilter: (value, record) => record.amplua.startsWith(value),
             filterSearch: true,
+        },
+        {
+            title: 'Price',
+            className: 'column-money',
+            dataIndex: 'price',
+            align: 'center',
         },
     ];
 
@@ -68,11 +71,6 @@ export default function AllPlayers() {
 
     return (
         <div>
-            <Breadcrumb>
-                <Breadcrumb.Item>
-                    <h2>Everton</h2>
-                </Breadcrumb.Item>
-            </Breadcrumb>
             <div style={{ padding: 24, minHeight: 360 }}>
                 {renderFootballPlayers()}
             </div>

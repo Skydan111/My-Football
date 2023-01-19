@@ -1,5 +1,6 @@
 package my.fantasyfootball.de.controller;
 
+import my.fantasyfootball.de.model.footballplayer.FootballPlayerModel;
 import my.fantasyfootball.de.model.team.Team;
 import my.fantasyfootball.de.model.team.TeamModel;
 import my.fantasyfootball.de.service.TeamService;
@@ -25,7 +26,7 @@ public class TeamController {
         return teamService.getAllTeams();
     }
 
-    @GetMapping(path = "/{userId}")
+    @GetMapping(path = "/id/{userId}")
     public TeamModel getUserTeam(@PathVariable String userId){
         return teamService.getUserTeam(userId);
     }
@@ -33,5 +34,10 @@ public class TeamController {
     @GetMapping(path = "/byRate")
     public List<TeamModel> getTeamsByRate() {
         return teamService.getTeamsByTeamRate();
+    }
+
+    @GetMapping(path = "/fc/{teamName}")
+    public List<FootballPlayerModel> getTeamSquad(@PathVariable String teamName){
+        return teamService.getTeamSquad(teamName);
     }
 }
