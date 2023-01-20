@@ -2,8 +2,11 @@ import {useState, useEffect} from 'react';
 import {getAllPlayers} from "../../client";
 import {
     Empty,
+    Layout,
     Table
 } from "antd";
+import {Content, Footer, Header} from "antd/es/layout/layout";
+import SideBar from "../SideBar";
 
 export default function AllPlayers() {
     const [footballPlayers, setFootballPlayers] = useState([]);
@@ -70,10 +73,20 @@ export default function AllPlayers() {
     }
 
     return (
-        <div>
+        <>
+            <SideBar />
+
+            <Layout className="site-layout">
+                <Header className="site-layout-background">
+                    <h2>My Fantasy League</h2>
+                </Header>
+                <Content>
             <div style={{ padding: 24, minHeight: 360 }}>
                 {renderFootballPlayers()}
             </div>
-        </div>
+                </Content>
+                <Footer className="site-layout-footer">Fantasy League by Oleg Skydan</Footer>
+            </Layout>
+        </>
     )
 }

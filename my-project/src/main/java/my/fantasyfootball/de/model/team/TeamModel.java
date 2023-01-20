@@ -5,7 +5,7 @@ import my.fantasyfootball.de.model.team.Team;
 public class TeamModel {
 
     private final String teamName;
-    private final Double teamRate;
+    private final String teamRate;
 
     public TeamModel(Team team) {
         this.teamName = team.getTeamName();
@@ -16,7 +16,7 @@ public class TeamModel {
         return teamName;
     }
 
-    public Double getTeamRate() {
+    public String getTeamRate() {
         return teamRate;
     }
 }

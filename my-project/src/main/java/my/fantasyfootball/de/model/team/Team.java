@@ -5,6 +5,7 @@ import my.fantasyfootball.de.model.User;
 import my.fantasyfootball.de.model.footballplayer.FootballPlayer;
 
 import javax.persistence.*;
+import java.text.DecimalFormat;
 import java.util.*;
 
 @Entity(name = "Team")
@@ -109,12 +110,13 @@ public class Team {
         this.teamName = teamName;
     }
 
-    public double getTeamRate() {
+    public String getTeamRate() {
+        String formatDouble = String.valueOf(new DecimalFormat("#0.00"));
         double sum = 0;
         for(FootballPlayer player : squad){
             sum = sum + player.getFootballPlayerRate();
         }
-        return sum / squad.size();
+        return new DecimalFormat("#0.00").format(sum / squad.size());
     }
 
     public String getSchema() {

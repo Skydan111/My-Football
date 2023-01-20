@@ -1,10 +1,13 @@
 import {useState, useEffect} from 'react';
-import {getAllPlayers, getTeamSquad} from "../../client";
+import {getTeamSquad} from "../../client";
 import {
     Breadcrumb,
     Empty,
+    Layout,
     Table
 } from "antd";
+import {Content, Footer, Header} from "antd/es/layout/layout";
+import SideBar from "../SideBar";
 
 export default function MyTeam() {
 
@@ -43,8 +46,8 @@ export default function MyTeam() {
             return <Empty/>;
         }
         return <Table
-            dataSource = {squad}
-            columns = {columnsForSquad}
+            dataSource={squad}
+            columns={columnsForSquad}
             bordered
             title={() => 'My Squad'}
             rowKey={(footballPlayer) => JSON.stringify(footballPlayer)}
@@ -52,18 +55,27 @@ export default function MyTeam() {
     }
 
     return (
-        <div>
-            <Breadcrumb>
-                <Breadcrumb.Item>
-                    Oleg
-                </Breadcrumb.Item>
-                <Breadcrumb.Item>
-                    Everton
-                </Breadcrumb.Item>
-            </Breadcrumb>
-            <div style={{ padding: 24, minHeight: 360 }}>
-                {renderSquad()}
-            </div>
-        </div>
+        <>
+            <SideBar/>
+            <Layout className="site-layout">
+                <Header className="site-layout-background">
+                    <h2>My Fantasy League</h2>
+                </Header>
+                <Content>
+                    <Breadcrumb>
+                        <Breadcrumb.Item>
+                            Oleg
+                        </Breadcrumb.Item>
+                        <Breadcrumb.Item>
+                            Everton
+                        </Breadcrumb.Item>
+                    </Breadcrumb>
+                    <div style={{padding: 24, minHeight: 360}}>
+                        {renderSquad()}
+                    </div>
+                </Content>
+                <Footer className="site-layout-footer">Fantasy League by Oleg Skydan</Footer>
+            </Layout>
+        </>
     )
 }
