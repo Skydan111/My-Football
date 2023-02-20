@@ -1,6 +1,6 @@
 package my.fantasyfootball.de.controller;
 
-import my.fantasyfootball.de.model.User;
+import my.fantasyfootball.de.model.user.User;
 import my.fantasyfootball.de.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

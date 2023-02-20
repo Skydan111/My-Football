@@ -1,10 +1,11 @@
 package my.fantasyfootball.de;
 
-import my.fantasyfootball.de.model.*;
 import my.fantasyfootball.de.model.footballplayer.Amplua;
 import my.fantasyfootball.de.model.footballplayer.FootballPlayer;
 import my.fantasyfootball.de.model.statistics.Statistics;
 import my.fantasyfootball.de.model.team.Team;
+import my.fantasyfootball.de.model.user.User;
+import my.fantasyfootball.de.model.user.UserRole;
 import my.fantasyfootball.de.repository.TeamRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -26,31 +27,34 @@ public class DemoApplication {
 
 		return args -> {
 					User oleg = new User(
-							"oskidan8684@gmail.com",
 							"Oleg",
 							"Skydan",
-							"123456789");
+							"oskidan8684@gmail.com",
+							"123456789",
+							UserRole.ADMIN);
 
-					User nick = new User(
-							"nick.skydan@gmail.com",
-							"Nick",
-							"Skydan",
-							"987654321");
-
-					User kate = new User(
-							"katucik_14@gmail.com",
-							"Kate",
-							"Skydan",
-							"Kate2512");
+//					User nick = new User(
+//							"nick.skydan@gmail.com",
+//							"Nick",
+//							"Skydan",
+//							"987654321",
+//							UserRole.USER);
+//
+//					User kate = new User(
+//							"katucik_14@gmail.com",
+//							"Kate",
+//							"Skydan",
+//							"Kate2512",
+//							UserRole.USER);
 
 			Team everton = new Team("Everton","4-4-2", oleg);
 			oleg.setTeam(everton);
 
-			Team arsenal = new Team("Arsenal","4-5-1", nick);
-			nick.setTeam(arsenal);
-
-			Team city = new Team("Manchester City","4-2-3-1", kate);
-			kate.setTeam(city);
+//			Team arsenal = new Team("Arsenal","4-5-1", nick);
+//			nick.setTeam(arsenal);
+//
+//			Team city = new Team("Manchester City","4-2-3-1", kate);
+//			kate.setTeam(city);
 
 			FootballPlayer mykolenko = new FootballPlayer(
 					"Vitaliy",
@@ -112,14 +116,15 @@ public class DemoApplication {
 			everton.transferToSquad(garner);
 			everton.transferToSquad(gueye);
 
-			arsenal.transferToSquad(mykolenko);
-			arsenal.transferToSquad(gueye);
+//			arsenal.transferToSquad(mykolenko);
+//			arsenal.transferToSquad(gueye);
+//
+//			city.transferToSquad(mykolenko);
+//			city.transferToSquad(holland);
+//			city.transferToSquad(alisson);
 
-			city.transferToSquad(mykolenko);
-			city.transferToSquad(holland);
-			city.transferToSquad(alisson);
-
-			teamRepository.saveAll(List.of(everton, arsenal, city));
+//			teamRepository.saveAll(List.of(everton, arsenal, city));
+			teamRepository.saveAll(List.of(everton));
 		};
 	}
 }
