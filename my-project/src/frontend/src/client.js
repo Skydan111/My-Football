@@ -20,3 +20,13 @@ export const getTeamsByRate = () =>
 export const getTeamSquad = () =>
     fetch("api/v1/teams/fc/Everton")
         .then(checkStatus);
+
+export const addNewUser = user =>
+    fetch("api/v1/registration", {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(user)
+    });
+
